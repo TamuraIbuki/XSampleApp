@@ -46,7 +46,7 @@ final class HomeViewController: UIViewController {
         self.navigationItem.titleView = titleView
         
         
-    //左のバーボタンアイテムに画像を設定する
+    // 左のバーボタンアイテムに画像を設定する
         if let image = UIImage(named: "ic_cat") {
             //画像のサイズを32×32にリサイズ
             let circularImage = image.makeCicularImage(image: image, size: CGSize(width: 32, height: 32))
