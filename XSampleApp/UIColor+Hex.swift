@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    ///16進数でカラーを受け取れるようにする
+    /// 16進数でカラーを受け取れるようにする
     convenience init(hex: String) {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
