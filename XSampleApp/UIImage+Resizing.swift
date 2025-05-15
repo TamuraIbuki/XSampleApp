@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIImage {
-    //UIImageの拡張機能
+    /// UIImageの拡張機能
     func makeCicularImage(image: UIImage, size: CGSize) -> UIImage? {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
