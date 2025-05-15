@@ -30,7 +30,6 @@ final class HomeViewController: UIViewController {
     @IBAction func didTapPostButton(_ sender: Any) {
     }
     
-
     // MARK: - Other Methods
     
     
