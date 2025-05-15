@@ -37,7 +37,7 @@ final class HomeViewController: UIViewController {
         let imageView = UIImageView(image: UIImage(named: "ic_x_logo"))
         imageView.contentMode = .scaleAspectFit
         
-        //画像のサイズを適切に設定
+        // 画像のサイズを適切に設定
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 26, height: 24))
         imageView.frame = titleView.bounds
         titleView.addSubview(imageView)
