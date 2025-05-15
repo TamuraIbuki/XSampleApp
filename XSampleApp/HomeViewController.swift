@@ -58,7 +58,8 @@ final class HomeViewController: UIViewController {
             self.navigationItem.leftBarButtonItem = leftBarButtonItem
         }
     }
-    //左のバーボタンアイテムがタップされた
+    
+    // 左のバーボタンアイテムがタップされた
     @objc func didTapLeftBarButton() {
         //ボタンがタップされた時のアクションをここに記述
         print("Left bar button tapped")
