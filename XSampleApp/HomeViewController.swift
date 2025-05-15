@@ -21,7 +21,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configurenavigationBar()
+        configureNavigationBar()
         
     }
     // MARK: - IBActions
@@ -32,7 +32,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Other Methods
     
-    private func configurenavigationBar() {
+    private func configureNavigationBar() {
         // 画像ビューを作成
         let imageView = UIImageView(image: UIImage(named: "ic_x_logo"))
         imageView.contentMode = .scaleAspectFit
