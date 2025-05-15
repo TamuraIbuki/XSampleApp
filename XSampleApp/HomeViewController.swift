@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController {
         imageView.frame = titleView.bounds
         titleView.addSubview(imageView)
         
-        //ナビゲーションアイテムのタイトルビューに設定
+        // ナビゲーションアイテムのタイトルビューに設定
         self.navigationItem.titleView = titleView
         
         
