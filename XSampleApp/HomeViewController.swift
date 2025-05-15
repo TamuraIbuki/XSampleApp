@@ -45,7 +45,6 @@ final class HomeViewController: UIViewController {
         // ナビゲーションアイテムのタイトルビューに設定
         self.navigationItem.titleView = titleView
         
-        
     // 左のバーボタンアイテムに画像を設定する
         if let image = UIImage(named: "ic_cat") {
             //画像のサイズを32×32にリサイズ
