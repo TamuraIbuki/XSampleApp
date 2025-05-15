@@ -64,6 +64,4 @@ final class HomeViewController: UIViewController {
         //ボタンがタップされた時のアクションをここに記述
         print("Left bar button tapped")
     }
-    
-
 }
