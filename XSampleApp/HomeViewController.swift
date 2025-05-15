@@ -18,7 +18,6 @@ final class HomeViewController: UIViewController {
     
     // MARK: - View Life-Cycle Methods
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
