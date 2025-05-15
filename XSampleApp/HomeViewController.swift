@@ -22,8 +22,6 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         configurenavigationBar()
-
-
         
     }
     // MARK: - IBActions
