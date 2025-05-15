@@ -16,7 +16,7 @@ final class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-// MARK: - View Life-Cycle Methods
+    // MARK: - View Life-Cycle Methods
 
 
     override func viewDidLoad() {
