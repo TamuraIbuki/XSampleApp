@@ -27,7 +27,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - IBActions
     
-    //ポストボタンをタップ
+    /// ポストボタンをタップ
     @IBAction func didTapPostButton(_ sender: Any) {
     }
     
@@ -60,7 +60,7 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    // 左のバーボタンアイテムがタップされた
+    /// 左のバーボタンアイテムがタップされた
     @objc func didTapLeftBarButton() {
         // ボタンがタップされた時のアクションをここに記述
         print("Left bar button tapped")
