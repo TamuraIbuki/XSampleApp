@@ -24,6 +24,7 @@ final class HomeViewController: UIViewController {
         configureNavigationBar()
         
     }
+    
     // MARK: - IBActions
     
     //ポストボタンをタップ
