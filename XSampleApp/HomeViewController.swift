@@ -48,21 +48,21 @@ final class HomeViewController: UIViewController {
         
         // 左のバーボタンアイテムに画像を設定する
         if let image = UIImage(named: "ic_cat") {
-            //画像のサイズを32×32にリサイズ
+            // 画像のサイズを32×32にリサイズ
             let circularImage = image.makeCicularImage(image: image, size: CGSize(width: 32, height: 32))
-            //画像を使ってUIBarButtonItemを作成する
+            // 画像を使ってUIBarButtonItemを作成する
             let leftBarButtonItem = UIBarButtonItem(image: circularImage?.withRenderingMode(.alwaysOriginal),
                                                     style: .plain,
                                                     target: self,
                                                     action: #selector(didTapLeftBarButton))
-            //leftBarButtonItemに設定する
+            // leftBarButtonItemに設定する
             self.navigationItem.leftBarButtonItem = leftBarButtonItem
         }
     }
     
     // 左のバーボタンアイテムがタップされた
     @objc func didTapLeftBarButton() {
-        //ボタンがタップされた時のアクションをここに記述
+        // ボタンがタップされた時のアクションをここに記述
         print("Left bar button tapped")
     }
 }
