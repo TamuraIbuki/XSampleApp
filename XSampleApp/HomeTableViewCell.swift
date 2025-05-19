@@ -12,7 +12,7 @@ class HomeTableViewCell: UICollectionViewCell {
     
     /// ユーザーイメージビュー
     @IBOutlet private weak var usserImageView: UIImageView!
-    /// ユーザー各ラベル
+    /// ユーザー名ラベル
     @IBOutlet private weak var userNameLabel: UILabel!
     /// 本文ラベル
     @IBOutlet private weak var bodyLabel: UILabel!
