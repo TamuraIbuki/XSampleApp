@@ -8,7 +8,7 @@
 import UIKit
 
 /// ホーム画面のセル
-class HomeTableViewCell: UICollectionViewCell {
+final class HomeTableViewCell: UICollectionViewCell {
     
     /// ユーザーイメージビュー
     @IBOutlet private weak var userImageView: UIImageView!
