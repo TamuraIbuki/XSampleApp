@@ -231,8 +231,8 @@
             <size key="customSize" width="377" height="128"/>
             <connections>
                 <outlet property="bodyLabel" destination="sVw-Wp-leX" id="U7U-TC-oG7"/>
+                <outlet property="userImageView" destination="3Rj-96-Sjx" id="aqz-ar-wo9"/>
                 <outlet property="userNameLabel" destination="7Cf-wf-nxq" id="oqS-4Z-8ls"/>
-                <outlet property="usserImageView" destination="3Rj-96-Sjx" id="aqz-ar-wo9"/>
             </connections>
             <point key="canvasLocation" x="-333.58778625954199" y="58.450704225352112"/>
         </collectionViewCell>

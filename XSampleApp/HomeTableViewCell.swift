@@ -11,14 +11,14 @@ import UIKit
 class HomeTableViewCell: UICollectionViewCell {
     
     /// ユーザーイメージビュー
-    @IBOutlet private weak var usserImageView: UIImageView!
+    @IBOutlet private weak var userImageView: UIImageView!
     /// ユーザー名ラベル
     @IBOutlet private weak var userNameLabel: UILabel!
     /// 本文ラベル
     @IBOutlet private weak var bodyLabel: UILabel!
     
     func configure(imageString: String, name: String, body: String) {
-        self.usserImageView.image = UIImage(named: imageString)
+        self.userImageView.image = UIImage(named: imageString)
         self.userNameLabel.text = name
         self.bodyLabel.text = body
     }
