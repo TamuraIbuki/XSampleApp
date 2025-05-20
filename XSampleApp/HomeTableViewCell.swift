@@ -8,18 +8,18 @@
 import UIKit
 
 /// ホーム画面のセル
-final class HomeTableViewCell: UICollectionViewCell {
+final class HomeTableViewCell: UITableViewCell {
     
     /// ユーザーイメージビュー
     @IBOutlet private weak var userImageView: UIImageView!
     /// ユーザー名ラベル
     @IBOutlet private weak var userNameLabel: UILabel!
     /// 本文ラベル
-    @IBOutlet private weak var bodyLabel: UILabel!
+    @IBOutlet private weak var userBodyLabel: UILabel!
     
     func configure(imageString: String, name: String, body: String) {
         self.userImageView.image = UIImage(named: imageString)
         self.userNameLabel.text = name
-        self.bodyLabel.text = body
+        self.userBodyLabel.text = body
     }
 }

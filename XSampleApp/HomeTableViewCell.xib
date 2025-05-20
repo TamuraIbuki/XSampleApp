@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="221" id="qcp-Jy-bBP">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="221" id="qcp-Jy-bBP" customClass="HomeTableViewCell" customModule="XSampleApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="394" height="186"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qcp-Jy-bBP" id="9Ar-8E-cSf">
@@ -66,7 +66,7 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="ic_3point"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fw-UE-xW5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fw-UE-xW5">
                         <rect key="frame" x="61" y="31" width="318" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -232,7 +232,12 @@
                     <constraint firstItem="Sug-TB-W8o" firstAttribute="leading" secondItem="Z28-9x-Q6i" secondAttribute="trailing" constant="32" id="ybj-PM-vXR"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="180.15267175572518" y="-22.887323943661972"/>
+            <connections>
+                <outlet property="userBodyLabel" destination="9Fw-UE-xW5" id="cLV-NO-KQu"/>
+                <outlet property="userImageView" destination="D14-lF-loH" id="Hfb-6N-kqY"/>
+                <outlet property="userNameLabel" destination="b0m-00-06Q" id="Zv8-OG-7YV"/>
+            </connections>
+            <point key="canvasLocation" x="180.15267175572518" y="-23.239436619718312"/>
         </tableViewCell>
     </objects>
     <resources>
