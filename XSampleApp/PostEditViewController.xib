@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostEditViewController" customModule="XSampleApp" customModuleProvider="target">
             <connections>
+                <outlet property="nameTaxtField" destination="WgP-po-CL4" id="cmD-mF-bWa"/>
+                <outlet property="tableView" destination="R1e-5a-fRy" id="5kF-gQ-7cf"/>
                 <outlet property="userImageView" destination="WPu-gq-8iu" id="gSI-uu-fde"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
