@@ -6,31 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// Home画面
 final class HomeViewController: UIViewController {
 
     // MARK: - Properties
-    
-    let cells: [Home] = [
-        Home(
-            imageString: "image1",
-            name: "山田太郎",
-            body: "This is the body of cell 1"
-        ),
-        Home(
-            imageString: "image2",
-            name: "佐藤花子",
-            body: "This is the body of cell 2"
-        ),
-        Home(
-            imageString: "image3",
-            name: "吉田沙織",
-            body: "This is the body of cell 3")
-    ]
-    
+        
     /// RealmManagerのインスタンス
     private let realmManager = RealmManager.shared
+    
+    /// 投稿データ
+    private var posts: Results<Post>!
 
     // MARK: - IBOutlets
 
@@ -43,7 +30,11 @@ final class HomeViewController: UIViewController {
         
         configureNavigationBar()
         configureTableView()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchDate()
     }
     
     // MARK: - IBActions
@@ -51,6 +42,7 @@ final class HomeViewController: UIViewController {
     /// ポストボタンをタップ
     @IBAction func didTapPostButton(_ sender: Any) {
         let vc = PostEditViewController()
+        vc.delegate = self
         let navi = UINavigationController(rootViewController: vc)
         navi.modalPresentationStyle = .fullScreen
         navigationController?.present(navi, animated: true)
@@ -105,6 +97,11 @@ final class HomeViewController: UIViewController {
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    /// ポストデータを取得
+    private func fetchDate() {
+        posts = realmManager.getPosts()
+    }
+    
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -120,16 +117,16 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     /// データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     /// 各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 再利用可能な cell を得る
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)as! HomeTableViewCell
-        cell.configure(imageString: cells[indexPath.row].imageString,
-                       name: cells[indexPath.row].name,
-                       body: cells[indexPath.row].body)
+        cell.configure(imageString: posts[indexPath.row].imageString,
+                       name: posts[indexPath.row].name,
+                       body: posts[indexPath.row].body)
         return cell
     }
 }
@@ -171,5 +168,14 @@ extension HomeViewController: UIImagePickerControllerDelegate & UINavigationCont
             // leftBarButtonItemに設定する
             self.navigationItem.leftBarButtonItem = leftBarButtonItem
         }
+    }
+}
+
+// MARK: - PostEditViewControllerDelegate
+
+extension HomeViewController: PostEditViewControllerDelegate {
+    ///テーブルビューをリロード
+    func update() {
+        tableView.reloadData()
     }
 }
