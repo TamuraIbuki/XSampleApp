@@ -7,6 +7,10 @@
 
 import UIKit
 
+/// デリゲートのプロトコル
+protocol PostEditViewControllerDelegate: AnyObject {
+    func update()
+}
 /// ポスト編集画面
 final class PostEditViewController: UIViewController {
     
@@ -15,6 +19,10 @@ final class PostEditViewController: UIViewController {
     private let placeholderText = "いまどうしてる？"
     /// RealmManagerのインスタンス
     private let realmManager = RealmManager.shared
+    /// 画像
+    private var imageString: String = ""
+    /// デリゲートのプロパティ
+    weak var delegate: PostEditViewControllerDelegate?
  
     // MARK: - IBOutlet
     
@@ -69,7 +77,14 @@ final class PostEditViewController: UIViewController {
     
     // 「ポスト」バーボタンをタップ
     @objc private func didTapPostButton() {
-        //ボタンがタップされた時の処理をここに記述
+        if let name = nameTaxtField.text, !name.isEmpty,
+           let body = textView.text, !body.isEmpty {
+            realmManager.savePost(imageString: imageString, name: name, body: body)
+            delegate?.update()
+            dismiss(animated: true, completion: nil)
+        } else {
+            showAlert(title: "ポスト内容がありません")
+        }
     }
     
     /// プロフィール画像の設定
@@ -78,8 +93,9 @@ final class PostEditViewController: UIViewController {
            let imageString = profile.imageString,
            let imageData = Data(base64Encoded: imageString),
            let image = UIImage(data: imageData) {
-            userImageView.image = image
-        }else{
+            self.imageString = imageString
+            self.userImageView.image = image
+        } else {
             userImageView.image = UIImage(systemName: "person")
         }
     }
@@ -92,6 +108,16 @@ final class PostEditViewController: UIViewController {
         // デリゲートを設定
         textView.delegate = self
     }
+    
+    /// アラートを表示
+    private func showAlert(title: String) {
+        let alert = UIAlertController(title: title,
+                                      message: "",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - UITextViewDelegate
