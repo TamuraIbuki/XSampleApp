@@ -82,7 +82,7 @@ final class PostEditViewController: UIViewController {
             realmManager.savePost(imageString: imageString, name: name, body: body)
             delegate?.update()
             dismiss(animated: true, completion: nil)
-        }else{
+        } else {
             showAlert(title: "ポスト内容がありません")
         }
     }
