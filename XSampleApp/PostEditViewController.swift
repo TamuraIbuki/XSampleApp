@@ -108,6 +108,7 @@ final class PostEditViewController: UIViewController {
         // デリゲートを設定
         textView.delegate = self
     }
+    
     /// アラートを表示
     private func showAlert(title: String) {
         let alert = UIAlertController(title: title,
