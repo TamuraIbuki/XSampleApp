@@ -34,7 +34,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchDate()
+        fetchData()
     }
     
     // MARK: - IBActions
@@ -98,7 +98,7 @@ final class HomeViewController: UIViewController {
     }
     
     /// ポストデータを取得
-    private func fetchDate() {
+    private func fetchData() {
         posts = realmManager.getPosts()
     }
     
