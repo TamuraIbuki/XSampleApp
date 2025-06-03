@@ -118,6 +118,11 @@ final class PostEditViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    /// 文字数カウント
+    func bodyCount(_ body: String) -> Bool{
+        return !body.isEmpty && body.count <= 140
+    }
+    
 }
 
 // MARK: - UITextViewDelegate
