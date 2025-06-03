@@ -20,7 +20,7 @@ final class exampleTest: XCTestCase {
     
     func testBodyCount() throws {
         let vc = PostEditViewController()
-        let bodyLimit = String(repeating: "あ", count: 140)
+        let bodyLimit = String(repeating: "あいうえお", count: 140)
         XCTAssertTrue(vc.bodyCount(bodyLimit))
     }
     
