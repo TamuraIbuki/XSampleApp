@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import RealmSwift
 @testable import XSampleApp
 
 final class exampleTest: XCTestCase {
@@ -22,8 +21,15 @@ final class exampleTest: XCTestCase {
     /// bodyCount関数に入れた文字列が空じゃなかった場合、trueを返すかをテスト
     func testBodyCount() throws {
         let vc = PostEditViewController()
-        let result = vc.bodyCount("")
+        let result = vc.bodyCount("あ")
         XCTAssertTrue(result)
+    }
+    
+    /// bodyCount関数に入れた文字列が空だった場合、falseを返すかをテスト
+    func testBodyCount1() throws {
+        let vc = PostEditViewController()
+        let result = vc.bodyCount("")
+        XCTAssertFalse(result)
     }
     
     /// bodyCount関数に入れた文字列が140文字以下だった場合、trueを返すかをテスト
@@ -36,7 +42,7 @@ final class exampleTest: XCTestCase {
     /// bodyCount関数に入れた文字列が141文字以上だった場合、falseを返すかをテスト
     func testBodyCount3() throws {
         let vc = PostEditViewController()
-        let result = vc.bodyCount("毎日少しずつでも前に進むことが大切です。成果が見えない時期があっても、積み重ねは必ず自分の力になります。")
+        let result = vc.bodyCount("毎日少しずつ努力を積み重ねることが、やがて大きな成果となります。焦らず自分のペースを守りながら、一歩一歩前進し続けることが成功の秘訣です。どんなに小さな積み重ねでも、未来を必ず変える力になります。毎日少しずつ努力を積み重ねることが、やがて大きな成果となります。焦らず自分のペースを守りながら、一歩一歩前進し続けることが成功の秘訣です。どんなに小さな積み重ねでも、未来を必ず変える力になります。")
         XCTAssertFalse(result)
     }
     
