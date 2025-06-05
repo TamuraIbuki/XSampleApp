@@ -79,9 +79,13 @@ final class PostEditViewController: UIViewController {
     @objc private func didTapPostButton() {
         if let name = nameTaxtField.text, !name.isEmpty,
            let body = textView.text, !body.isEmpty {
-            realmManager.savePost(imageString: imageString, name: name, body: body)
-            delegate?.update()
-            dismiss(animated: true, completion: nil)
+            if body.count > 140 {
+                showAlert(title: "140文字以内で入力してください")
+            } else {
+                realmManager.savePost(imageString: imageString, name: name, body: body)
+                delegate?.update()
+                dismiss(animated: true, completion: nil)
+            }
         } else {
             showAlert(title: "ポスト内容がありません")
         }

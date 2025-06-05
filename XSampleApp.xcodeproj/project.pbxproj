@@ -62,6 +62,17 @@
 			);
 			target = 4717AC4C2DCBBA6A0041B4FF /* XSampleApp */;
 		};
+		4797E3062DF06C5800080BC8 /* Exceptions for "XSampleApp" folder in "exampleTest" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Post.swift,
+				PostEditViewController.swift,
+				Profile.swift,
+				RealmManager.swift,
+				"UIColor+Hex.swift",
+			);
+			target = 4797E2A82DEEF32500080BC8 /* exampleTest */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +80,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				4717AC5F2DCBBA6C0041B4FF /* Exceptions for "XSampleApp" folder in "XSampleApp" target */,
+				4797E3062DF06C5800080BC8 /* Exceptions for "XSampleApp" folder in "exampleTest" target */,
 			);
 			path = XSampleApp;
 			sourceTree = "<group>";
@@ -456,7 +468,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MyApp.exampleTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MyApp.exampleTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
