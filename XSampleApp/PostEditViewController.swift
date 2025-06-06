@@ -78,13 +78,14 @@ final class PostEditViewController: UIViewController {
     // 「ポスト」バーボタンをタップ
     @objc private func didTapPostButton() {
         if let name = nameTaxtField.text, !name.isEmpty,
-           let body = textView.text, !body.isEmpty {
-            if body.count > 140 {
-                showAlert(title: "140文字以内で入力してください")
-            } else {
+           let body = textView.text,
+           textView.textColor != UIColor.lightGray {
+            if bodyCount(body) {
                 realmManager.savePost(imageString: imageString, name: name, body: body)
                 delegate?.update()
                 dismiss(animated: true, completion: nil)
+            } else {
+                showAlert(title: "本文が空か、140文字を超えています")
             }
         } else {
             showAlert(title: "ポスト内容がありません")
@@ -121,6 +122,12 @@ final class PostEditViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    /// 文字数カウント
+    func bodyCount(_ body: String) -> Bool{
+        return !body.isEmpty && body.count <= 140
+    }
+    
 }
 
 // MARK: - UITextViewDelegate
