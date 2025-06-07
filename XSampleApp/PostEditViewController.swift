@@ -99,7 +99,6 @@ final class PostEditViewController: UIViewController {
             }
         }
     }
-        
     
     /// プロフィール画像の設定
     private func configureProfileImage() {
