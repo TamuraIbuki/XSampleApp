@@ -77,20 +77,29 @@ final class PostEditViewController: UIViewController {
     
     // 「ポスト」バーボタンをタップ
     @objc private func didTapPostButton() {
-        if let name = nameTaxtField.text, !name.isEmpty,
-           let body = textView.text,
-           textView.textColor != UIColor.lightGray {
+        let name = nameTaxtField.text ?? ""
+        let body = textView.text ?? ""
+        if !name.isEmpty, textView.textColor != UIColor.lightGray {
             if bodyCount(body) {
                 realmManager.savePost(imageString: imageString, name: name, body: body)
                 delegate?.update()
                 dismiss(animated: true, completion: nil)
             } else {
-                showAlert(title: "本文が空か、140文字を超えています")
+                showAlert(title: "本文が140文字を超えています")
             }
         } else {
-            showAlert(title: "ポスト内容がありません")
+            if name.isEmpty && body == placeholderText {
+                showAlert(title: "名前と本文がありません")
+            } else {
+                if name.isEmpty {
+                    showAlert(title: "名前がありません")
+                } else {
+                    showAlert(title: "本文がありません")
+                }
+            }
         }
     }
+        
     
     /// プロフィール画像の設定
     private func configureProfileImage() {
