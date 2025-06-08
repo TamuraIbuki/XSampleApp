@@ -178,4 +178,8 @@ extension HomeViewController: PostEditViewControllerDelegate {
     func update() {
         tableView.reloadData()
     }
+    
+    func isBodyCount(_ body: String) -> Bool {
+        return !body.isEmpty && body.count <= 140
+    }
 }

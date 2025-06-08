@@ -77,14 +77,38 @@ final class PostEditViewController: UIViewController {
     
     // 「ポスト」バーボタンをタップ
     @objc private func didTapPostButton() {
-        if let name = nameTaxtField.text, !name.isEmpty,
-           let body = textView.text, !body.isEmpty {
-            realmManager.savePost(imageString: imageString, name: name, body: body)
-            delegate?.update()
-            dismiss(animated: true, completion: nil)
-        } else {
-            showAlert(title: "ポスト内容がありません")
-        }
+        let name = nameTaxtField.text ?? ""
+        let body = textView.text ?? ""
+        
+        // 名前と本文両方がない場合
+        if name.isEmpty && body == placeholderText {
+            showAlert(title: "名前と本文がありません")
+            return
+           }
+        
+        // 名前がない場合
+        if name.isEmpty {
+            showAlert(title: "名前がありません")
+            return
+            }
+        
+        // 本文がない（またはプレースホルダーのまま）の場合
+        if textView.textColor == UIColor.lightGray {
+            showAlert(title: "本文がありません")
+            return
+            }
+        
+        // 本文が140文字を超えている場合
+        if !bodyCount(body) {
+            showAlert(title: "本文が140文字を超えています")
+            return
+            }
+        
+        // すべての条件を満たした場合のみ投稿処理
+        realmManager.savePost(imageString: imageString, name: name, body: body)
+        delegate?.update()
+        dismiss(animated: true, completion: nil)
+        
     }
     
     /// プロフィール画像の設定
@@ -116,6 +140,11 @@ final class PostEditViewController: UIViewController {
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    /// 文字数カウント
+    func bodyCount(_ body: String) -> Bool{
+        return !body.isEmpty && body.count <= 140
     }
     
 }
